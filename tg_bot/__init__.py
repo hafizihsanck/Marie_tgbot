@@ -115,7 +115,7 @@ SUDO_USERS.add(254318997)
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
-telethn = TelegramClient("Marie", APP_ID, API_HASH)
+telethn = TelegramClient("marie", APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
