@@ -4,14 +4,10 @@ import sys
 import time
 
 import telegram.ext as tg
-from telethon import TelegramClient
-
-StartTime = time.time()
 
 # enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO)
 
 LOGGER = logging.getLogger(__name__)
@@ -48,8 +44,6 @@ if ENV:
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
-    APP_ID = os.environ.get('APP_ID')
-    API_HASH = os.environ.get('API_HASH')
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     URL = os.environ.get('URL', "")  # Does not contain token
     PORT = int(os.environ.get('PORT', 5000))
@@ -116,9 +110,7 @@ SUDO_USERS.add(466337795)
 SUDO_USERS.add(254318997)
 
 
-
 updater = tg.Updater(TOKEN, workers=WORKERS)
-telethn = TelegramClient("marie", APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
