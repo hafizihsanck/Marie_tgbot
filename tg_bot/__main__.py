@@ -23,7 +23,7 @@ Hi {}, my name is *{}!*
 
 I am a group manager bot maintained by [this person](tg://user?id={}). Made by *@Infinity_BOTs.*
 
-This is my creator's [Github Profile](https://github.com/ImJanindu), you can follow him.
+This is [Source Code](https://github.com/ImJanindu/Marie_tgbot), you can make a clone like me.
 
 Hit /help to find out more about how to use me to my full potential.
 """
@@ -44,7 +44,7 @@ Hello! my name is *{}*. I am a group management bot, here to help you get around
 
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "All commands can either be used with / or !\n")
 
-DONATE_STRING = """Hey, glad to hear you want to donate for the developer! It took lots of work for [my creator](t.me/ImJanindu) to get me to where I am now, and every donation helps motivate him to make me even better.\nHe's just a poor student, so every little helps!"""
+DONATE_STRING = """Hey, glad to hear you want to donate for the developer! It took lots of work for [my creator](t.me/ImJanindu) to get me to where I am now, and every donation helps motivate him to make me even better.\nHe's just a poor student, so every little help is important for him!"""
 
 IMPORTED = {}
 MIGRATEABLE = []
