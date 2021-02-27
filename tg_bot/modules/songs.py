@@ -269,9 +269,9 @@ async def download_video(v_url):
 
 
 __help__ = """
- • /song <song name>: uploads the song in it's best quality available
- • /video <video name>: uploads the video in it's best quality available
- • /lyrics <song name>: provides the lyrics of the song you want
+ - /song <song name>: uploads the song in it's best quality available
+ - /video <video name>: uploads the video in it's best quality available
+ - /lyrics <song name>: provides the lyrics of the song you want
 """
 
 __mod_name__ = "Songs 🎵"
