@@ -100,20 +100,14 @@ def _check_member(client, message):
             except UserNotParticipant:
                 try:
                     sent_message = message.reply_text(
-                        "**ආයුබෝවන් {} 🙏 \n\nඔයා අපේ @{} Channel එකට තාම Join වෙලා නෑ 🥺 \nකරුණාකරල ඒකට Join වෙලා පහල තියන UNMUTE ME Button එක touch කරන්න.\n\n[👉 OUR CHANNEL 👈](https://t.me/{})**".format(
+                        "**ආයුබෝවන් {} 🙏 \n\nඔයා අපේ @{} Channel එකට තාම Join වෙලා නෑ 🥺 \nකරුණාකරල ඒකට Join වෙලා පහල තියන UnMute Me Button එක touch කරන්න.\n\n[👉 OUR CHANNEL 👈](https://t.me/{})**".format(
                             message.from_user.mention, channel, channel
                         ),
                         disable_web_page_preview=True,
                         reply_markup=InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton(
-                                        "UnMute Me", callback_data="onUnMuteRequest"
-                                    )
-                                ]
-                            ]
-                        ),
-                    )
+                            [[InlineKeyboardButton("Join Channel", url="https://t.me/{}".format(channel))], 
+                            [[InlineKeyboardButton("UnMute Me", callback_data="onUnMuteRequest")]]
+                        )
                     client.restrict_chat_member(
                         chat_id, user_id, ChatPermissions(can_send_messages=False)
                     )
