@@ -26,3 +26,4 @@ youtube-search-python
 asyncio
 pyrogram
 tgcrypto
+zipfile
