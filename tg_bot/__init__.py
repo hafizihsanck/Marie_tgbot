@@ -4,6 +4,7 @@ import sys
 import time
 
 from pyrogram import Client, errors
+from pyrogram.types import Chat, User
 from telethon import TelegramClient
 import telegram.ext as tg
 
@@ -122,6 +123,8 @@ telethn = TelegramClient("marie", API_ID, API_HASH)
 pbot = Client("mariePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
+apps = []
+apps.append(pbot)
 
 async def get_entity(client, entity):
     entity_client = client
