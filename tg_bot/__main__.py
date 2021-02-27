@@ -6,7 +6,7 @@ from typing import Optional, List
 from telegram import Message, Chat, Update, Bot, User
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, ChatMigrated, TelegramError
-from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
+from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler, CallbackContext
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
@@ -135,7 +135,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             buttons = InlineKeyboardMarkup(
                 [
                 [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="📌 Update Channel", url="https://t.me/infinity_bots")],
-                [InlineKeyboardButton(text="❓Help", url="https://t.me/Marie_tgbot?start=help"), InlineKeyboardButton(text="🇱🇰 Developer", url="https://t.me/imjanindu")]])
+                [InlineKeyboardButton(text="❓Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="🇱🇰 Developer", url="https://t.me/imjanindu")]])
             update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID), disable_web_page_preview=True, reply_markup=(buttons), parse_mode=ParseMode.MARKDOWN)
     else:
         update.effective_message.reply_text("Waked up 😏")
