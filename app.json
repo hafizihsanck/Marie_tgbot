@@ -73,7 +73,7 @@
     },
     "BAN_STICKER": {
       "description": "Which sticker to use when banning people. Use @sticker_id_bot to get id of stickers",
-      "value": ""
+      "value": "CAACAgIAAxkBAAIBB2A6EKMRjdqeweDU8oaTrDN5YDthAAKkCQACeVziCRY25WGPnHY7HgQ"
     }
   },
   "addons": [
