@@ -3,6 +3,7 @@ import os
 import sys
 import time
 
+from pyrogram import Client, errors
 from telethon import TelegramClient
 import telegram.ext as tg
 
@@ -117,6 +118,7 @@ SUDO_USERS.add(254318997)
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
 telethn = TelegramClient("marie", API_ID, API_HASH)
+pbot = Client("mariePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
