@@ -24,3 +24,5 @@ aiohttp>=2.2.5
 Pillow>=4.2.0
 youtube-search-python
 asyncio
+pyrogram
+tgcrypto
