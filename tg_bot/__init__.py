@@ -122,6 +122,33 @@ telethn = TelegramClient("marie", API_ID, API_HASH)
 pbot = Client("mariePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
+
+async def get_entity(client, entity):
+    entity_client = client
+    if not isinstance(entity, Chat):
+        try:
+            entity = int(entity)
+        except ValueError:
+            pass
+        except TypeError:
+            entity = entity.id
+        try:
+            entity = await client.get_chat(entity)
+        except (PeerIdInvalid, ChannelInvalid):
+            for pbot in apps:
+                if pbot != client:
+                    try:
+                        entity = await pbot.get_chat(entity)
+                    except (PeerIdInvalid, ChannelInvalid):
+                        pass
+                    else:
+                        entity_client = pbot
+                        break
+            else:
+                entity = await pbot.get_chat(entity)
+                entity_client = pbot
+    return entity, entity_client
+
 SUDO_USERS = list(SUDO_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
