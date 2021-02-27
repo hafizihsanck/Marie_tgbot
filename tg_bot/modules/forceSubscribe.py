@@ -26,7 +26,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 
-from tg_bot import OWNER_ID as SUDO_USERS
+from tg_bot import OWNER_ID
 from tg_bot import pbot
 from tg_bot.modules.sql import forceSubscribe_sql as sql
 
@@ -92,7 +92,7 @@ def _check_member(client, message):
         if (
             not client.get_chat_member(chat_id, user_id).status
             in ("administrator", "creator")
-            and not user_id in SUDO_USERS
+            and not user_id in OWNER_ID
         ):
             channel = chat_db.channel
             try:
@@ -100,7 +100,7 @@ def _check_member(client, message):
             except UserNotParticipant:
                 try:
                     sent_message = message.reply_text(
-                        "ආයුබෝවන් {} 🙏 \n \n **ඔයා අපේ @{} Channel එකට තාම Join වෙලා නෑ** 😭 \n කරුණාකරල ඒකට Join වෙලා පහල තියන **UNMUTE ME** Button එක touch කරන්න. \n \n **[👉 OUR CHANNEL 👈](https://t.me/{})**".format(
+                        "**ආයුබෝවන් {} 🙏 \n\nඔයා අපේ @{} Channel එකට තාම Join වෙලා නෑ 🥺 \nකරුණාකරල ඒකට Join වෙලා පහල තියන UNMUTE ME Button එක touch කරන්න.\n\n[👉 OUR CHANNEL 👈](https://t.me/{})**".format(
                             message.from_user.mention, channel, channel
                         ),
                         disable_web_page_preview=True,
@@ -132,7 +132,7 @@ def _check_member(client, message):
 @pbot.on_message(filters.command(["forcesubscribe", "fsub"]) & ~filters.private)
 def config(client, message):
     user = client.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status is "creator" or user.user.id in SUDO_USERS:
+    if user.status is "creator" or user.user.id in OWNER_ID:
         chat_id = message.chat.id
         if len(message.command) > 1:
             input_str = message.command[1]
