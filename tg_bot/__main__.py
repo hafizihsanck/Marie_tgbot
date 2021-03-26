@@ -134,8 +134,9 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
                 [
-                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="📌 Update Channel", url="https://t.me/infinity_bots")],
-                [InlineKeyboardButton(text="❓Help", url="https://t.me/Marie_tgbot?start=help"), InlineKeyboardButton(text="🇱🇰 Developer", url="https://t.me/imjanindu")]])
+                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/InFoTelGroup"), InlineKeyboardButton(text="🔔 Update Channel🔔", url="https://t.me/MarieChechi")],
+                [InlineKeyboardButton(text="❓Help", url="https://t.me/Professor_Robot?start=help"), InlineKeyboardButton(text="🇱🇰 Developer", url="https://t.me/ihsan_bin_ahmd")],
+                [InlineKeyboardButton(text="📺 Movies Cha 📺", url="https://t.me/joinchat/9_qUuXHjvkI1MjY1")
             update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID), disable_web_page_preview=True, reply_markup=(buttons), parse_mode=ParseMode.MARKDOWN)
     else:
         update.effective_message.reply_text("Waked up 😏")
@@ -144,7 +145,7 @@ def start(bot: Bot, update: Update, args: List[str]):
 # for test purposes
 def error_callback(bot, update, error):
     try:
-        raise error
+        raise error 
     except Unauthorized:
         print("no nono1")
         print(error)
